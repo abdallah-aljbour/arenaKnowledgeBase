@@ -1,0 +1,31 @@
+.sidebar {
+  width: 294px; // Sidebar width
+  height: 940px; // Sidebar height
+  padding: 16px; // Padding inside sidebar
+  background-color: #172554; // Background color of the sidebar
+  border-radius: 12px; // Border radius for rounded corners
+  display: flex;
+  flex-direction: column;
+  gap: 28px; // Gap between sidebar elements (for when items are added)
+}
+// Media query for responsiveness
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 250px; // Reduce sidebar width on smaller screens
+    padding: 12px; // Adjust padding for smaller screens
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; // Further reduce sidebar width on very small screens
+    padding: 8px; // Adjust padding further
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 150px; // Minimal width for very small screens (mobile)
+    padding: 4px; // Minimal padding for very small screens
+  }
+}

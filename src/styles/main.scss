@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.main-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+}
+
+.main-content {
+  width: 100%;
+  max-width: 1440px;
+  height: auto;
+  max-height: 1020px;
+  background: white;
+  border-radius: 0.625rem;
+  display: flex;
+  flex-direction: row; /* Changed to row to allow sidebar and content side by side */
+  gap: 0.75rem;
+  box-shadow: 0rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures content doesn't overflow */
+}
+
+.sidebar {
+  width: 294px;
+  min-width: 294px; /* Prevents sidebar from shrinking */
+  height: 100%;
+  padding: 16px;
+  background-color: #172554;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.content-area {
+  flex-grow: 1;
+  height: 100%;
+  overflow: auto; /* Allows scrolling if content is too long */
+  padding: 1.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1440px) {
+  .main-content {
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    flex-direction: column; /* Stack vertically on smaller screens */
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: none;
+    border-radius: 0.625rem 0.625rem 0 0;
+  }
+
+  .content-area {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-container {
+    padding: 0.625rem;
+  }
+
+  .sidebar {
+    padding: 12px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    padding: 8px;
+    gap: 15px;
+  }
+}
