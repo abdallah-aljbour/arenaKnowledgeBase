@@ -1,6 +1,6 @@
 .sidebar {
-  width: 294px; // Sidebar width
-  height: 940px; // Sidebar height
+  width: 294px;
+  height: 940px;
   padding: 16px; // Padding inside sidebar
   background-color: #172554; // Background color of the sidebar
   border-radius: 12px; // Border radius for rounded corners
@@ -9,6 +9,14 @@
   gap: 28px; // Gap between sidebar elements (for when items are added)
 }
 // Media query for responsiveness
+@media (min-width: 1441px) and (max-width: 1536px) {
+  .sidebar {
+    width: 294px;
+    height: calc(100vh - 42px);
+    padding: 16px;
+  }
+}
+
 @media (max-width: 1024px) {
   .sidebar {
     width: 250px; // Reduce sidebar width on smaller screens
