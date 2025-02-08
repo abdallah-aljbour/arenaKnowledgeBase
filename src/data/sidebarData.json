@@ -1,0 +1,77 @@
+[
+  {
+    "icon": "home-2.svg",
+    "text": "Home",
+    "link": "/"
+  },
+  {
+    "icon": "profile-2user.svg",
+    "text": "User Management",
+    "link": "/dashboard",
+    "subItems": [
+      { "text": "Add User", "link": "/dashboard/add-user" },
+      { "text": "View Users", "link": "/dashboard/view-users" }
+    ]
+  },
+  {
+    "icon": "hierarchy-square-3.svg",
+    "text": "Workflow Management",
+    "link": "/projects"
+  },
+
+  {
+    "icon": "receipt-search.svg",
+    "text": "Audit Trail",
+    "link": "/pp"
+  },
+  {
+    "icon": "arrange-square.svg",
+    "text": "Customer Transactions",
+    "link": "/pro"
+  },
+  {
+    "icon": "briefcase.svg",
+    "text": "Customer 360",
+    "link": "/proj"
+  },
+  {
+    "icon": "user-octagon.svg",
+    "text": "Customer Onboarding",
+    "link": "/user1"
+  },
+  {
+    "icon": "message-question.svg",
+    "text": "Complaints Management",
+    "link": "/questions"
+  },
+  {
+    "icon": "trade.svg",
+    "text": "Trade Finance",
+    "link": "/trade"
+  },
+  {
+    "icon": "personalcard.svg",
+    "text": "Lead Management",
+    "link": "/user"
+  },
+  {
+    "icon": "money-send.svg",
+    "text": "Loan Management",
+    "link": "/money-send"
+  },
+  {
+    "icon": "book.svg",
+    "text": "Knowledge Base",
+    "link": "/Knowledge"
+  },
+  {
+    "icon": "key-square.svg",
+    "text": "License Management",
+    "link": "/License"
+  },
+  {
+    "icon": "setting-3.svg",
+    "text": "Admin Settings",
+    "link": "/Admin"
+  }
+]
