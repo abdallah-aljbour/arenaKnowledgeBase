@@ -1,39 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap");
+
 .sidebar {
-  width: 294px;
-  height: 940px;
-  padding: 16px; // Padding inside sidebar
-  background-color: #172554; // Background color of the sidebar
-  border-radius: 12px; // Border radius for rounded corners
+  width: 326px;
+  height: 972px;
+  padding: 16px;
+  background-color: #172554;
+  border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 28px; // Gap between sidebar elements (for when items are added)
+  gap: 28px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    width: 108px;
+    padding: 16px;
+  }
 }
-// Media query for responsiveness
+.partOneAndTow {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+.partOne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #0c1a46;
+  width: 294px;
+  padding: 6px 12px;
+  height: 68.71px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    width: 76px;
+    padding: 6px 12px;
+  }
+}
+
+.logo-text-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  max-width: 154.37px;
+  padding: 7.31px;
+}
+
+.logo-text-container img {
+  width: 39.78px;
+  height: 42.09px;
+}
+
+.ARENA {
+  font-family: Cairo;
+  font-weight: 500;
+  font-size: 29.24px;
+  line-height: 45.69px;
+  color: #eff6ff;
+}
+
+.toggle-left {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+.right-toggle {
+  position: absolute;
+  top: 42px;
+  left: 150px;
+  z-index: 10;
+}
+/////partTow
+.partTow {
+  width: 294px;
+  padding: 8px 12px;
+  height: 41px;
+  background-color: #eff6ff33;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+
+  &.collapsed {
+    display: flex;
+
+    justify-content: center;
+    width: 76px;
+    height: 40px;
+    padding: 8px 12px;
+  }
+}
+.search-container {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+
+  .search-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .search-text {
+    font-family: Cairo;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 25px;
+    color: #eff6ff;
+    &.collapsed {
+      display: none;
+    }
+  }
+}
+.partItem {
+  display: flex;
+  gap: 1rem;
+  width: 294px;
+  height: 786px;
+  &.collapsed {
+    width: 76px;
+    height: 787.29px;
+  }
+  flex-direction: column;
+}
+.mainMenu {
+  display: flex;
+  gap: 24px;
+  padding-right: 24px;
+  padding-left: 24px;
+  font-family: Cairo;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 25px;
+  color: #eff6ff;
+  margin-top: 46.65px;
+  width: 294px;
+
+  &.collapsed {
+    display: none;
+  }
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 294px;
+  height: 652px;
+  &.collapsed {
+    width: 76px;
+    height: 787.29px;
+    margin-top: 74.65px;
+  }
+}
+//style for sidebarItem file
+.sidebar-item {
+  width: 294px;
+  height: 41px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #eff6ff;
+  font-family: Cairo;
+  font-size: 16px;
+  line-height: 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:hover {
+    background-color: rgba(239, 246, 255, 0.2);
+  }
+
+  &.active {
+    background-color: #1d4ed8;
+  }
+
+  &.collapsed {
+    width: 76px;
+    justify-content: center;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .plus-icon {
+    margin-left: auto;
+  }
+}
+.plus-icon {
+  width: 20px;
+  height: 20px;
+}
+
 @media (min-width: 1441px) and (max-width: 1536px) {
   .sidebar {
     width: 294px;
     height: calc(100vh - 42px);
     padding: 16px;
   }
+  .partOne {
+    width: 100%;
+  }
+  .partTow {
+    width: 100%;
+  }
+  .right-toggle {
+    position: absolute;
+    left: 197px;
+  }
+  .partItem {
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .item {
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-width: 16px;
+    overflow-x: hidden;
+  }
+  .sidebar-item {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1024px) {
   .sidebar {
-    width: 250px; // Reduce sidebar width on smaller screens
-    padding: 12px; // Adjust padding for smaller screens
+    width: 250px;
+    padding: 12px;
   }
 }
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 200px; // Further reduce sidebar width on very small screens
-    padding: 8px; // Adjust padding further
+    width: 200px;
+    padding: 8px;
   }
 }
 
 @media (max-width: 480px) {
   .sidebar {
-    width: 150px; // Minimal width for very small screens (mobile)
-    padding: 4px; // Minimal padding for very small screens
+    width: 150px;
+    padding: 4px;
   }
 }
