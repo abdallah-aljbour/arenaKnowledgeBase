@@ -1,5 +1,4 @@
-// Sidebar.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import sidebarData from "../data/sidebarData.json";
 import SidebarItem from "./SidebarItem";
@@ -9,7 +8,6 @@ import sidebarLeft from "../assets/sidebar-left.svg";
 import sidebarRight from "../assets/sidebar-right.svg";
 import searchIcon from "../assets/search-normal.svg";
 
-// Define types for SidebarItem and SubMenu
 interface SubMenuItem {
   text: string;
   link: string;
@@ -21,15 +19,29 @@ interface SidebarItemData {
   subItems?: SubMenuItem[];
 }
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+  onStateChange?: (isCollapsed: boolean, hasSubmenuOpen: boolean) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ onStateChange }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [selectedSubMenu, setSelectedSubMenu] =
     useState<SidebarItemData | null>(null);
+  const [activeItem, setActiveItem] = useState<string>("");
   const location = useLocation();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setActiveItem(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    onStateChange?.(isCollapsed, selectedSubMenu !== null);
+  }, [isCollapsed, selectedSubMenu, onStateChange]);
+
   const toggleSidebar = () => {
-    setIsCollapsed(!isCollapsed);
+    const newCollapsedState = !isCollapsed;
+    setIsCollapsed(newCollapsedState);
     if (selectedSubMenu) setSelectedSubMenu(null);
   };
 
@@ -39,17 +51,26 @@ const Sidebar: React.FC = () => {
   };
 
   const handleItemClick = (link: string) => {
+    setActiveItem(link);
     navigate(link);
     setSelectedSubMenu(null);
   };
 
-  // Determine if a submenu is open
+  const handlePlusClick = (item: SidebarItemData) => {
+    if (item.subItems) {
+      setSelectedSubMenu(item);
+      setIsCollapsed(true);
+    }
+  };
+
   const isSubMenuOpen = selectedSubMenu !== null;
 
   return (
     <>
       <div
-        className={`sidebar ${isCollapsed ? "collapsed" : ""}`}
+        className={`sidebar ${isCollapsed ? "collapsed" : ""} ${
+          isSubMenuOpen ? "submenu-open" : ""
+        }`}
         style={{
           borderTopRightRadius: isSubMenuOpen ? "0" : "12px",
           borderBottomRightRadius: isSubMenuOpen ? "0" : "12px",
@@ -85,7 +106,6 @@ const Sidebar: React.FC = () => {
             </div>
           </div>
         </div>
-
         <div className={`partItem ${isCollapsed ? "collapsed" : ""}`}>
           <div className={`mainMenu ${isCollapsed ? "collapsed" : ""}`}>
             Main Menu
@@ -96,19 +116,14 @@ const Sidebar: React.FC = () => {
                 key={index}
                 {...item}
                 isCollapsed={isCollapsed}
-                isActive={location.pathname === item.link}
-                onPlusClick={() => {
-                  if (item.subItems) {
-                    setSelectedSubMenu(item);
-                    setIsCollapsed(true);
-                  }
-                }}
+                isActive={activeItem === item.link}
+                onClick={() => handleItemClick(item.link)}
+                onPlusClick={() => handlePlusClick(item)}
               />
             ))}
           </div>
         </div>
       </div>
-
       {selectedSubMenu && selectedSubMenu.subItems && (
         <div className="submenu-container">
           <div className="submenu-header">
