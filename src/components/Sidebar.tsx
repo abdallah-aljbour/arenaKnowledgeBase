@@ -7,6 +7,7 @@ import arenaLogo from "../assets/Arena-logo-icon.svg";
 import sidebarLeft from "../assets/sidebar-left.svg";
 import sidebarRight from "../assets/sidebar-right.svg";
 import searchIcon from "../assets/search-normal.svg";
+import cmdIcon from "../assets/Cmd.svg";
 
 interface SubMenuItem {
   text: string;
@@ -99,11 +100,22 @@ const Sidebar: React.FC<SidebarProps> = ({ onStateChange }) => {
               onClick={toggleSidebar}
             />
           )}
-          <div className={`partTow ${isCollapsed ? "collapsed" : ""}`}>
-            <div className="search-container">
-              <img src={searchIcon} alt="Search Icon" className="search-icon" />
-              {!isCollapsed && <span className="search-text">Search</span>}
+          <div className={`search-bar ${isCollapsed ? "collapsed" : ""}`}>
+            <div className="icon-container">
+              <img src={searchIcon} alt="Search" />
             </div>
+            {!isCollapsed && (
+              <>
+                <div className="input-container">
+                  <input type="text" placeholder="Search" />
+                </div>
+                <div className="icons-container">
+                  <div className="icon-wrapper">
+                    <img src={cmdIcon} alt="Command" />
+                  </div>
+                </div>
+              </>
+            )}
           </div>
         </div>
         <div className={`partItem ${isCollapsed ? "collapsed" : ""}`}>
