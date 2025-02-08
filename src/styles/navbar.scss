@@ -1,0 +1,75 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d8dae5;
+  border-radius: 12px;
+  padding: 19px 30px;
+  width: 1038px;
+  height: 80px;
+  gap: 10px;
+  background-color: #ffffff;
+
+  transition: width 0.3s ease, margin 0.3s ease;
+}
+.User-Names {
+  position: relative;
+
+  .circle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .prfile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.left-navbar {
+  display: flex;
+  align-items: center;
+}
+
+.Knowledge-Base {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Cairo;
+  color: #142452;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.right-navbar {
+  ul {
+    list-style-type: none;
+    display: flex;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    font-family: Cairo;
+    color: #142452;
+    cursor: pointer;
+  }
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

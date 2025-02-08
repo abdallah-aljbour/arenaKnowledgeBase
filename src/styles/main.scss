@@ -10,18 +10,20 @@ body {
   height: 100%;
   overflow-x: hidden;
 }
+
 body {
   *::-webkit-scrollbar {
     width: 1px;
   }
 }
+
 *::-webkit-scrollbar-track {
   background: transparent;
 }
 
 .main-container {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f1f5f9;
   display: flex;
   justify-content: center;
@@ -30,54 +32,89 @@ body {
 }
 
 .main-content {
-  width: 1376px;
-  height: auto;
+  width: 100%;
+  max-width: 1376px;
+  min-height: 600px;
   max-height: 1020px;
   background: white;
   border-radius: 0.625rem;
   display: flex;
-  flex-direction: row;
   gap: 0.75rem;
   box-shadow: 0rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  position: relative;
 }
 
-// .sidebar {
-//   width: 294px;
-//   min-width: 294px;
-//   height: 100%;
-//   padding: 16px;
-//   background-color: #172554;
-//   border-radius: 12px;
-//   display: flex;
-//   flex-direction: column;
-//   gap: 28px;
-// }
+.sidebar {
+  position: relative;
+  flex-shrink: 0;
+  width: 326px;
+  height: 100%;
+  background: white;
+  transition: all 0.3s ease;
+  z-index: 2;
+
+  &.collapsed {
+    width: 108px;
+  }
+
+  &.collapsed.submenu-open {
+    width: 358px;
+  }
+}
+
+.navbar {
+  flex: 1;
+  height: 100%;
+  padding: 1.25rem;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+  background: white;
+
+  // When sidebar is expanded (default state)
+  max-width: calc(100% - 326px - 0.75rem); // 326px is expanded sidebar width
+
+  // When sidebar is collapsed
+  .sidebar.collapsed ~ & {
+    max-width: calc(100% - 108px - 0.75rem); // 108px is collapsed sidebar width
+  }
+
+  // When submenu is open
+  .sidebar.collapsed.submenu-open ~ & {
+    max-width: 1000px; // Fixed width when submenu is open
+  }
+}
 
 .content-area {
-  flex-grow: 1;
   height: 100%;
-  overflow: auto; /* Allows scrolling if content is too long */
+  overflow: auto;
   padding: 1.25rem;
 }
 
-/* Responsive Design */
-@media (min-width: 1445px) {
+// Responsive Design
+@media (min-width: 1441px) and (max-width: 1536px) {
   .main-content {
-    max-width: 100%;
+    max-width: 1300px;
+  }
+
+  .navbar {
+    .sidebar.collapsed.submenu-open ~ & {
+      max-width: 900px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .main-content {
     max-height: none;
     height: auto;
-    flex-direction: column; /* Stack vertically on smaller screens */
   }
 
-  .sidebar {
-    width: 100%;
-    max-width: none;
-    border-radius: 0.625rem 0.625rem 0 0;
-  }
-
-  .content-area {
-    width: 100%;
+  .navbar {
+    .sidebar.collapsed.submenu-open ~ & {
+      max-width: 800px;
+    }
   }
 }
 
@@ -86,15 +123,58 @@ body {
     padding: 0.625rem;
   }
 
+  .main-content {
+    flex-direction: column;
+    gap: 0;
+  }
+
   .sidebar {
-    padding: 12px;
-    gap: 20px;
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+
+    &.collapsed,
+    &.collapsed.submenu-open {
+      width: 100%;
+    }
+  }
+
+  .navbar {
+    width: 100%;
+    max-width: 100% !important; // Override all max-width states on mobile
+    padding: 1rem;
+  }
+
+  .submenu-container {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    border-radius: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .sidebar {
-    padding: 8px;
-    gap: 15px;
+  .main-container {
+    padding: 0.5rem;
   }
+
+  .navbar {
+    padding: 0.75rem;
+  }
+
+  .sidebar {
+    padding: 0.75rem;
+  }
+}
+
+// Optional: Add smooth scroll behavior
+html {
+  scroll-behavior: smooth;
+}
+
+// Fix for any potential overflow issues
+.main-content > * {
+  max-width: 100%;
 }

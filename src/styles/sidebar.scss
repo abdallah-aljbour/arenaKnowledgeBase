@@ -69,8 +69,8 @@
 }
 .right-toggle {
   position: absolute;
-  top: 42px;
-  left: 150px;
+  top: 27px;
+  left: 122px;
   z-index: 10;
 }
 /////partTow
@@ -154,6 +154,7 @@
     margin-top: 74.65px;
   }
 }
+
 //style for sidebarItem file
 .sidebar-item {
   width: 294px;
@@ -170,6 +171,7 @@
   text-decoration: none;
   transition: all 0.3s ease;
   white-space: nowrap;
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(239, 246, 255, 0.2);
@@ -292,7 +294,7 @@
   }
   .right-toggle {
     position: absolute;
-    left: 197px;
+    left: 125px;
   }
   .partItem {
     width: 100%;
@@ -310,7 +312,7 @@
   }
   .submenu-container {
     position: fixed;
-    left: 188px;
+    left: 226px;
   }
 }
 

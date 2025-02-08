@@ -1,6 +1,4 @@
-// SidebarItem.tsx
 import React from "react";
-import { NavLink } from "react-router-dom";
 import "../styles/sidebar.scss";
 import addIcon from "../assets/add.svg";
 
@@ -11,24 +9,26 @@ interface SidebarItemProps {
   isCollapsed: boolean;
   isActive: boolean;
   subItems?: Array<{ text: string; link: string }>;
+  onClick: () => void;
   onPlusClick?: () => void;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
   icon,
   text,
-  link,
+
   isCollapsed,
   isActive,
   subItems,
+  onClick,
   onPlusClick,
 }) => {
   return (
-    <NavLink
-      to={link}
+    <div
       className={`sidebar-item ${isActive ? "active" : ""} ${
         isCollapsed ? "collapsed" : ""
       }`}
+      onClick={onClick}
     >
       <img src={`../../public/${icon}`} alt={text} className="icon" />
       {!isCollapsed && <span className="text">{text}</span>}
@@ -44,7 +44,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
           }}
         />
       )}
-    </NavLink>
+    </div>
   );
 };
 
