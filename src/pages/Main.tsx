@@ -4,6 +4,10 @@ import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import EmptyComponent from "../components/empty";
 
+import Toolbar from "../components/toolBar";
+=======
+
+
 const Main = () => {
   const [sidebarState, setSidebarState] = useState({
     isCollapsed: false,
@@ -28,6 +32,10 @@ const Main = () => {
         <div className="wrapper">
           <Navbar />
           <EmptyComponent />
+
+          <Toolbar />
+=======
+
         </div>
       </div>
     </div>
