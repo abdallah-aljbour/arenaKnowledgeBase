@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../styles/main.scss";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import EmptyComponent from "../components/empty";
 
 const Main = () => {
   const [sidebarState, setSidebarState] = useState({
@@ -24,7 +25,10 @@ const Main = () => {
     <div className="main-container">
       <div className="main-content">
         <Sidebar onStateChange={handleSidebarStateChange} />
-        <Navbar />
+        <div className="wrapper">
+          <Navbar />
+          <EmptyComponent />
+        </div>
       </div>
     </div>
   );
