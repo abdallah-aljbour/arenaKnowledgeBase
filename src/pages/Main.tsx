@@ -5,7 +5,9 @@ import Navbar from "../components/Navbar";
 import EmptyComponent from "../components/empty";
 import Toolbar from "../components/toolBar";
 import CardGrid from "../components/CardGrid/CardGrid";
+import NewCollectionModal from "../components/NewCollectionModal";
 import { CardData } from "../components/Card/types";
+import Footer from "../components/footer";
 
 const Main = () => {
   const [sidebarState, setSidebarState] = useState({
@@ -13,7 +15,15 @@ const Main = () => {
     hasSubmenuOpen: false,
   });
 
-  // Add this handler to receive sidebar state updates
+  // Add state for modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Handler for opening modal
+  const handleOpenModal = () => setIsModalOpen(true);
+
+  // Handler for closing modal
+  const handleCloseModal = () => setIsModalOpen(false);
+
   const handleSidebarStateChange = (
     collapsed: boolean,
     submenuOpen: boolean
@@ -23,6 +33,7 @@ const Main = () => {
       hasSubmenuOpen: submenuOpen,
     });
   };
+
   const cardsData: CardData[] = new Array(8).fill({
     image: "/src/assets/Knowledge Base Thumbnil.svg",
     title: "Collection Name",
@@ -41,8 +52,10 @@ const Main = () => {
         <div className="wrapper">
           <Navbar />
           <EmptyComponent />
-          <Toolbar />
+          <Toolbar onAddNew={handleOpenModal} />
           <CardGrid cards={cardsData} />
+          <Footer />
+          <NewCollectionModal isOpen={isModalOpen} onClose={handleCloseModal} />
         </div>
       </div>
     </div>
