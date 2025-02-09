@@ -36,7 +36,7 @@ body {
   max-width: 1376px;
   min-height: 600px;
   max-height: 1020px;
-  background: white;
+  background: #f1f5f9;
   border-radius: 0.625rem;
   display: flex;
   gap: 0.75rem;
@@ -62,30 +62,52 @@ body {
     width: 358px;
   }
 }
-
-.navbar {
+.wrapper {
+  display: flex;
+  gap: 19px;
   flex: 1;
-  height: 100%;
-  padding: 1.25rem;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s ease;
-  background: white;
 
-  // When sidebar is expanded (default state)
-  max-width: calc(100% - 326px - 0.75rem); // 326px is expanded sidebar width
+  align-items: flex-start;
+  flex-direction: column;
+}
+.wrapper.expanded .navbar {
+  max-width: calc(100% - 326px - 0.75rem);
+}
 
+.wrapper.collapsed .navbar {
+  max-width: calc(100% - 108px - 0.75rem);
+}
+
+.wrapper.submenu-open .navbar {
+  max-width: 1000px;
+}
+////////////////////component in the wrapper
+.navbar {
+  width: 100%;
   // When sidebar is collapsed
   .sidebar.collapsed ~ & {
-    max-width: calc(100% - 108px - 0.75rem); // 108px is collapsed sidebar width
+    max-width: 100; // 108px is collapsed sidebar width
   }
 
   // When submenu is open
-  .sidebar.collapsed.submenu-open ~ & {
-    max-width: 1000px; // Fixed width when submenu is open
+  // .sidebar.collapsed.submenu-open ~ & {
+  //   max-width: 1000px; // Fixed width when submenu is open
+  // }
+}
+.EmptyComponent {
+  width: 100%;
+
+  .sidebar.collapsed ~ & {
+    max-width: 100;
   }
 }
+.Toolbar {
+  width: 100%;
 
+  .sidebar.collapsed ~ & {
+    max-width: 100;
+  }
+}
 .content-area {
   height: 100%;
   overflow: auto;

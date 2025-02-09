@@ -1,0 +1,114 @@
+.toolBar {
+  width: 100%;
+  display: flex;
+  gap: 21px;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  align-items: center;
+}
+.toolBar-left {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.card-view {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+  align-items: center;
+  font-family: Cairo;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #000000;
+  width: 95px;
+  height: 24px;
+}
+.card-view img {
+  width: 24px;
+  height: 24px;
+}
+
+.row-view {
+  display: flex;
+  gap: 12px;
+  white-space: nowrap;
+  align-items: center;
+  width: 90px;
+  height: 24px;
+}
+.row-view span {
+  font-family: Cairo;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #94a3b8;
+}
+.search {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  border: 1px solid #f1f5f9;
+  padding: 10px 12px;
+  border-radius: 8px;
+  width: 564px;
+  height: 44px;
+}
+.search-input {
+  border: none;
+  font-family: Cairo;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 28px;
+  color: #94a3b8;
+}
+.toolBar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.filter-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  width: 87px;
+  height: 44px;
+  font-family: Cairo;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #172554;
+}
+.addNew {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  width: 110px;
+  height: 44px;
+  background-color: #2563eb;
+  border-radius: 8px;
+}
+.addNew img {
+  width: 24px;
+  height: 24px;
+}
+.addNew button {
+  background-color: #2563eb;
+  border: none;
+  font-family: Cairo;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #eff6ff;
+}
+@media (min-width: 1441px) and (max-width: 1536px) {
+  .toolBar {
+    max-width: 100%;
+  }
+  .toolBar-right {
+    margin-left: -28px;
+  }
+}
