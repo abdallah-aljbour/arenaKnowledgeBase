@@ -1,0 +1,80 @@
+.card {
+  height: 274px;
+  width: 249.5px;
+  min-width: 249.5px;
+  max-width: 304px;
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  &__image-container {
+    width: 221.5px;
+    height: 122px;
+    overflow: hidden;
+    border-radius: 8px;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__icon-text {
+    font-family: Cairo;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 28px;
+    color: #000000;
+  }
+}
+.card img {
+  height: 122px;
+  border-radius: 8px;
+}
+.card__content {
+  display: flex;
+  gap: 18px;
+  flex-direction: column;
+  height: 112px;
+  width: 221.5px;
+}
+.titleDescription {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  width: 221.5px;
+  height: 74px;
+}
+.card h3 {
+  font-family: Cairo;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: #172554;
+}
+.card p {
+  font-family: Cairo;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  color: #94a3b8;
+}
+.card__icon-container {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  width: 97.5px;
+  height: 20px;
+}
+.card__icon-container img {
+  width: 20px;
+  height: 20px;
+}
+.card__icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 49px;
+}
