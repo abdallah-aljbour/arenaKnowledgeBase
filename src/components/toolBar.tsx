@@ -6,7 +6,11 @@ import filter from "../assets/filter.svg";
 import add from "../assets/add.svg";
 import "../styles/toolbar.scss";
 
-const Toolbar: React.FC = () => {
+interface ToolbarProps {
+  onAddNew: () => void;
+}
+
+const Toolbar: React.FC<ToolbarProps> = ({ onAddNew }) => {
   return (
     <div className="toolBar">
       <div className="toolBar-left">
@@ -30,7 +34,7 @@ const Toolbar: React.FC = () => {
         </div>
         <div className="addNew">
           <img src={add} alt="add" />
-          <button>Add New</button>
+          <button onClick={onAddNew}>Add New</button>
         </div>
       </div>
     </div>
