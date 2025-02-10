@@ -3,7 +3,9 @@ import "../styles/main.scss";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
 import EmptyComponent from "../components/empty";
+
 import Toolbar from "../components/toolBar";
+
 import CardGrid from "../components/CardGrid/CardGrid";
 import NewCollectionModal from "../components/NewCollectionModal";
 import { CardData } from "../components/Card/types";
@@ -52,10 +54,13 @@ const Main = () => {
         <div className="wrapper">
           <Navbar />
           <EmptyComponent />
+
           <Toolbar onAddNew={handleOpenModal} />
           <CardGrid cards={cardsData} />
           <Footer />
           <NewCollectionModal isOpen={isModalOpen} onClose={handleCloseModal} />
+
+          <Toolbar />
         </div>
       </div>
     </div>
