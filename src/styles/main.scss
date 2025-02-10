@@ -93,6 +93,7 @@ body {
   // .sidebar.collapsed.submenu-open ~ & {
   //   max-width: 1000px; // Fixed width when submenu is open
   // }
+
 }
 .EmptyComponent {
   width: 100%;
@@ -102,6 +103,10 @@ body {
   }
 }
 .Toolbar {
+
+}
+.EmptyComponent {
+
   width: 100%;
 
   .sidebar.collapsed ~ & {

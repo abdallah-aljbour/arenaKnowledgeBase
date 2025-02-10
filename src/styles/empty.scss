@@ -3,13 +3,20 @@
   gap: 24px;
   align-self: stretch;
   align-items: center;
+
   background-color: #ffffff;
+
+
+
   height: 137px;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
 }
+
 @media (min-width: 1441px) and (max-width: 1536px) {
   .empty-component {
     max-width: 100%;
   }
 }
+
+
