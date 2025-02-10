@@ -59,8 +59,6 @@ const Main = () => {
           <CardGrid cards={cardsData} />
           <Footer />
           <NewCollectionModal isOpen={isModalOpen} onClose={handleCloseModal} />
-
-          <Toolbar />
         </div>
       </div>
     </div>
